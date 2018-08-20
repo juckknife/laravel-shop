@@ -74,6 +74,7 @@ class ProductsController extends Controller
             $grid->review_count('评论数');
 
             $grid->actions(function ($actions) {
+                $actions->disableView();
                 $actions->disableDelete();
             });
             $grid->tools(function ($tools) {
@@ -111,7 +112,7 @@ class ProductsController extends Controller
             });
             // 定义事件回调，当模型即将保存时会触发这个回调
             $form->saving(function (Form $form) {
-                $form->model()->price = collect($form->input('skus'))->where(Form::REMOVE_FLAG_NAME, 0)->min('price');
+                $form->model()->price = collect($form->input('skus'))->where(Form::REMOVE_FLAG_NAME, 0)->min('price') ?: 0;
             });
         });
     }
