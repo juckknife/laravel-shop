@@ -13,6 +13,19 @@ use Illuminate\Http\Request;
 |
 */
 
+//登录即可欧
+
+//登录接口
+Route::post('wechat/auth', 'WechatMpUsersController@auth');
+//商品列表接口
+Route::get('products', 'ProductsController@index');
+//商品详情接口
+Route::get('products/{product}', 'ProductsController@show')->name('products.show');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//类目选项
+Route::get('attrs/vals', 'AttrsController@options');
+Route::get('attrs/categoryvals', 'AttrsController@optinosfromcate');

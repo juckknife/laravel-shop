@@ -97,4 +97,7 @@ return [
         'filter_clear'       => '显示全部',
         'filter_placeholder' => '过滤',
     ],
+
+    'attrs'                  => '属性',
+    'products'               => '商品'
 ];

@@ -15,6 +15,7 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('category_id')->comment('类目ID')->index();
             $table->string('title');
             $table->text('description');
             $table->string('image');
@@ -22,6 +23,8 @@ class CreateProductsTable extends Migration
             $table->float('rating')->default(5);
             $table->unsignedInteger('sold_count')->default(0);
             $table->unsignedInteger('review_count')->default(0);
+            $table->decimal('base_price', 10, 2);
+            $table->decimal('agent_price', 10, 2);
             $table->decimal('price', 10, 2);
             $table->timestamps();
         });

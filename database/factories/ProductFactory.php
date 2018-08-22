@@ -21,9 +21,12 @@ $factory->define(App\Models\Product::class, function (Faker $faker) {
         'description'  => $faker->sentence,
         'image'        => $image,
         'on_sale'      => true,
+        'category_id'  => random_int(1,2),
         'rating'       => $faker->numberBetween(0, 5),
         'sold_count'   => 0,
         'review_count' => 0,
+        'base_price'   => 0,
+        'agent_price'  => 0,
         'price'        => 0,
     ];
 });

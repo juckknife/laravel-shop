@@ -7,7 +7,9 @@ use App\Exceptions\InternalException;
 
 class ProductSku extends Model
 {
-    protected $fillable = ['title', 'description', 'price', 'stock'];
+    protected $fillable = ['title', 'description', 'price', 'stock', 'attr_symbol_path'];
+
+    protected $casts = ['attr_symbol_path' => 'json'];
 
     public function product()
     {
